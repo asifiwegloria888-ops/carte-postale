@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <!-- "viewport" : indispensable pour que la carte s'affiche bien sur telephone -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Joyeux anniversaire mon amour - page 2</title>
+
+  <!-- Les belles polices viennent de Google Fonts (il faut internet). Sans internet, le navigateur en choisit d'autres. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+  <!-- le fichier de style, commun aux 4 pages -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-coeurs="16">
+  <!-- boite vide : carte.js y fait monter les coeurs -->
+  <div class="coeurs" aria-hidden="true"></div>
+
+  <!-- ==================== PAGE 2 ==================== -->
+  <main class="carte">
+
+    <h2 class="titre-page">En ce jour merveilleux…</h2>
+
+    <!-- une photo style "polaroid". Le texte dans <figcaption> est la legende ecrite sous la photo -->
+    <figure class="photo polaroid">
+      <img src="images/photo2.jpg" alt="Toi, ma lumière">
+      <figcaption>Toi, ma lumière</figcaption>
+    </figure>
+
+    <!-- le texte. Chaque <p> est un paragraphe. "lettrine" = grande premiere lettre -->
+    <div class="lettre">
+      <p class="lettrine">Je veux te rappeler combien tu es <span class="fort">précieuse</span> pour moi.</p>
+      <p>Même si la distance nous sépare, elle ne pourra jamais diminuer l’amour que je porte dans mon cœur pour toi.</p>
+    </div>
+
+    <div class="separateur" aria-hidden="true">❦</div>
+
+    <nav class="nav">
+      <a class="bouton bouton-discret" href="index.html" data-precedent>← Retour</a>
+      <span class="points" aria-label="Page 2 sur 4"><i></i><i class="actif"></i><i></i><i></i></span>
+      <a class="bouton" href="page3.html" data-suivant>Suivant →</a>
+    </nav>
+  </main>
+
+  <!-- le petit programme (coeurs + pages qui tournent) -->
+  <script src="carte.js"></script>
+</body>
+</html>

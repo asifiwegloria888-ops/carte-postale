@@ -1,0 +1,284 @@
+/* ==========================================================================
+   CARTE D'ANNIVERSAIRE - FEUILLE DE STYLE (le "maquillage" de la carte)
+   Le HTML dit CE QU'IL Y A sur la page. Ce fichier dit COMMENT CA SE VOIT.
+   Les parties sont numerotees. Les passages comme celui-ci (entre barre-etoile)
+   sont des explications : le navigateur les ignore.
+   ========================================================================== */
+
+
+/* ---------- 1. COULEURS ET POLICES ----------
+   Pour changer l'ambiance de toute la carte, modifiez seulement ces lignes.
+   Un code comme #d6336c est une couleur (cherchez "color picker" sur Google). */
+:root {
+  --creme: #fff7f2;          /* fond de la carte */
+  --rose: #f28ca7;           /* rose doux */
+  --rose-fonce: #d6336c;     /* rose vif (titres, boutons) */
+  --bordeaux: #8a1c3f;       /* rouge profond (texte important) */
+  --or: #c9a24b;             /* dorure des bordures */
+  --texte: #5a2a3a;          /* couleur du texte courant */
+  --police-titre: "Great Vibes", "Brush Script MT", cursive;                 /* ecriture "a la main" */
+  --police-texte: "Cormorant Garamond", Georgia, "Times New Roman", serif;   /* texte elegant */
+}
+
+
+/* ---------- 2. BASE : le fond de la page ---------- */
+* { box-sizing: border-box; }          /* les largeurs incluent les marges internes : plus simple a calculer */
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;                        /* ces 3 lignes centrent la carte sur l'ecran */
+  justify-content: center;
+  padding: 18px 12px 30px;
+  font-family: var(--police-texte);
+  font-size: 1.2rem;
+  line-height: 1.65;
+  color: var(--texte);
+  overflow-x: hidden;
+  /* un fond rose en degrade, avec deux "lueurs" douces */
+  background:
+    radial-gradient(circle at 15% 10%, rgba(255, 255, 255, .8) 0, transparent 38%),
+    radial-gradient(circle at 85% 90%, rgba(255, 214, 225, .9) 0, transparent 42%),
+    linear-gradient(160deg, #ffe3ec 0%, #ffc4d4 45%, #f9a8c0 100%);
+  background-attachment: fixed;
+}
+
+
+/* ---------- 3. LES COEURS QUI MONTENT (crees par carte.js) ---------- */
+.coeurs {
+  position: fixed;                      /* reste en place pendant qu'on fait defiler */
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;                 /* on peut cliquer "a travers" */
+  z-index: 0;
+}
+.coeur-flottant {
+  position: absolute;
+  bottom: -40px;
+  color: var(--rose);
+  opacity: 0;
+  animation: monte linear infinite;
+}
+@keyframes monte {                      /* une animation = des etapes de 0% a 100% */
+  0%   { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+  10%  { opacity: var(--opacite, .5); }
+  90%  { opacity: var(--opacite, .5); }
+  100% { transform: translate(var(--derive, 30px), -110vh) rotate(40deg); opacity: 0; }
+}
+
+
+/* ---------- 4. LA CARTE (le "papier") ---------- */
+.carte {
+  position: relative;
+  z-index: 1;                           /* au-dessus des coeurs */
+  width: min(100%, 470px);              /* jamais plus large que 470px, ni que l'ecran */
+  margin: auto;
+  padding: 36px 24px 46px;               /* le bas est plus haut pour laisser de la place a la petite fleur */
+  text-align: center;
+  background: linear-gradient(180deg, #fffaf6, var(--creme));
+  border: 2px solid var(--or);          /* filet dore */
+  border-radius: 22px;
+  /* trois ombres empilees : un liseré blanc, un liseré rose, puis l'ombre portee */
+  box-shadow:
+    0 0 0 7px rgba(255, 255, 255, .6),
+    0 0 0 9px var(--rose),
+    0 24px 50px rgba(138, 28, 63, .28);
+  animation: entree .9s ease both;      /* la carte apparait en douceur */
+}
+/* deux petites fleurs dans les coins */
+.carte::before, .carte::after {
+  content: "\273F";
+  position: absolute;
+  font-size: 1.7rem;
+  color: var(--rose);
+  opacity: .85;
+}
+.carte::before { top: 10px; left: 16px; }
+.carte::after  { bottom: 9px; right: 18px; }
+
+@keyframes entree { from { opacity: 0; transform: translateY(22px) scale(.97); } to { opacity: 1; transform: none; } }
+@keyframes sortie { to   { opacity: 0; transform: translateY(-16px) scale(.97); } }
+.carte.sortie { animation: sortie .32s ease forwards; }   /* quand on tourne la page */
+
+
+/* ---------- 5. TITRES ET TEXTES ---------- */
+.surtitre {
+  margin: 0;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--or);
+}
+.titre {
+  font-family: var(--police-titre);
+  font-weight: 400;
+  color: var(--rose-fonce);
+  font-size: clamp(2.7rem, 12vw, 3.9rem);   /* s'adapte a la taille de l'ecran */
+  line-height: 1.05;
+  margin: .25em 0 .35em;
+  text-shadow: 0 2px 0 #fff, 0 6px 18px rgba(214, 51, 108, .28);
+}
+.titre span { display: block; color: var(--bordeaux); }   /* "mon amour !!" sur sa propre ligne */
+
+.sous-titre { font-style: italic; margin: 6px 0 0; color: var(--bordeaux); }
+
+.titre-page {                           /* petit titre en ecriture manuscrite sur les pages 2, 3, 4 */
+  font-family: var(--police-titre);
+  font-weight: 400;
+  font-size: clamp(2rem, 8vw, 2.6rem);
+  color: var(--rose-fonce);
+  line-height: 1.15;
+  margin: .1em 0 .3em;
+}
+
+.lettre { margin-top: 6px; }
+.lettre p {
+  margin: 0 0 1em;
+  font-size: 1.28rem;
+  font-style: italic;
+  animation: monter .9s ease backwards;       /* chaque paragraphe se leve doucement */
+}
+.lettre p:nth-child(1) { animation-delay: .4s; }
+.lettre p:nth-child(2) { animation-delay: 1s; }
+.lettre p:nth-child(3) { animation-delay: 1.6s; }
+.lettre p:nth-child(4) { animation-delay: 2.2s; }
+@keyframes monter { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+/* la grande premiere lettre, comme dans les vieux livres */
+.lettre .lettrine::first-letter {
+  font-family: var(--police-titre);
+  font-style: normal;
+  font-size: 3.2rem;
+  line-height: .8;
+  float: left;
+  margin: 6px 5px 0 0;
+  color: var(--rose-fonce);
+}
+
+.fort { color: var(--bordeaux); font-weight: 600; }   /* un passage en rouge profond */
+
+.separateur {                           /* ligne avec un petit ornement au milieu */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 18px 0;
+  color: var(--or);
+  font-size: 1.3rem;
+}
+.separateur::before, .separateur::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--or), transparent);
+}
+
+.signature {
+  font-family: var(--police-titre);
+  font-size: clamp(2.2rem, 9vw, 3rem);
+  color: var(--bordeaux);
+  margin: 4px 0 0;
+  text-align: right;
+  line-height: 1.1;
+}
+.avec-amour { margin: 8px 0 0; text-align: right; font-style: italic; }
+
+
+/* ---------- 6. LES PHOTOS ----------
+   Trois styles : .coeur (photo en forme de coeur), .polaroid (cadre blanc incline).
+   Pour changer une photo : remplacez le fichier dans le dossier "images", sans changer son nom. */
+.photo { margin: 22px auto; width: min(78%, 300px); }
+.photo img { display: block; width: 100%; height: auto; object-fit: cover; }   /* la photo remplit le cadre sans se deformer */
+
+/* --- photo en forme de coeur --- */
+.coeur {
+  width: min(74%, 300px);
+  filter: drop-shadow(0 10px 14px rgba(214, 51, 108, .38));   /* ombre qui suit la forme du coeur */
+  animation: battement 2.6s ease-in-out infinite;
+}
+.coeur img {
+  aspect-ratio: 100 / 90;
+  /* le "masque" decoupe la photo selon un dessin de coeur (un SVG ecrit directement ici) */
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 90'%3E%3Cpath d='M50 88C20 62 2 44 2 26C2 12 13 2 27 2C37 2 46 8 50 16C54 8 63 2 73 2C87 2 98 12 98 26C98 44 80 62 50 88Z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 90'%3E%3Cpath d='M50 88C20 62 2 44 2 26C2 12 13 2 27 2C37 2 46 8 50 16C54 8 63 2 73 2C87 2 98 12 98 26C98 44 80 62 50 88Z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+}
+@keyframes battement { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.04); } }
+
+/* --- photo "polaroid" --- */
+.polaroid {
+  position: relative;
+  background: #fff;
+  padding: 10px 10px 8px;
+  border-radius: 4px;
+  box-shadow: 0 12px 26px rgba(90, 42, 58, .28);
+  transform: rotate(-2.5deg);           /* legerement penchee */
+}
+.polaroid.droite { transform: rotate(2.5deg); }
+.polaroid img { aspect-ratio: 4 / 5; }
+.polaroid figcaption {                  /* la legende sous la photo */
+  font-family: var(--police-titre);
+  font-size: 1.7rem;
+  color: var(--rose-fonce);
+  padding: 4px 0 2px;
+  line-height: 1.1;
+}
+.polaroid::before {                     /* un morceau de ruban adhesif rose */
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 78px;
+  height: 24px;
+  transform: translateX(-50%) rotate(-3deg);
+  background: rgba(242, 140, 167, .55);
+  border-radius: 3px;
+}
+.duo { display: flex; gap: 12px; justify-content: center; align-items: flex-start; margin: 26px 0 14px; }
+.duo .photo { margin: 0; width: 47%; }
+.duo .polaroid figcaption { font-size: 1.25rem; }
+.duo .polaroid.droite { margin-top: 26px; }
+
+
+/* ---------- 7. NAVIGATION : les boutons en bas de la carte ---------- */
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 24px; }
+.nav.seul { justify-content: center; }
+
+.bouton {
+  display: inline-block;
+  font-family: var(--police-texte);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #fff;
+  background: linear-gradient(135deg, var(--rose-fonce), var(--bordeaux));
+  padding: 11px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgba(138, 28, 63, .35);
+  transition: transform .2s;           /* le bouton "grandit" quand on le survole */
+}
+.bouton:hover { transform: translateY(-2px) scale(1.05); }
+.bouton-discret { background: transparent; color: var(--bordeaux); border: 2px solid var(--rose); box-shadow: none; padding: 9px 16px; }
+.bouton-grand { font-size: 1.25rem; padding: 14px 30px; animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { box-shadow: 0 6px 16px rgba(138, 28, 63, .35); } 50% { box-shadow: 0 6px 28px rgba(214, 51, 108, .75); } }
+
+.points i {                              /* les 4 petits points = les 4 pages */
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin: 0 3px;
+  border-radius: 50%;
+  background: var(--rose);
+  opacity: .45;
+}
+.points i.actif { background: var(--rose-fonce); opacity: 1; transform: scale(1.4); }
+
+
+/* ---------- 8. ECRANS LARGES ET RESPECT DES PERSONNES SENSIBLES AUX MOUVEMENTS ---------- */
+@media (min-width: 700px) {
+  body { align-items: center; padding: 36px; }
+  .carte { padding: 44px 40px 52px; }
+}
+@media (prefers-reduced-motion: reduce) {   /* si le telephone demande moins d'animations */
+  .coeurs { display: none; }
+  .coeur, .bouton-grand { animation: none; }
+}

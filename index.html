@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <!-- "viewport" : indispensable pour que la carte s'affiche bien sur telephone -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Joyeux anniversaire mon amour !!</title>
+
+  <!-- Les belles polices viennent de Google Fonts (il faut internet). Sans internet, le navigateur en choisit d'autres. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+  <!-- le fichier de style, commun aux 4 pages -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-coeurs="18">
+  <!-- boite vide : carte.js y fait monter les coeurs -->
+  <div class="coeurs" aria-hidden="true"></div>
+
+  <!-- ==================== PAGE 1 : LA COUVERTURE ==================== -->
+  <main class="carte">
+
+    <!-- petit texte au-dessus du titre -->
+    <p class="surtitre">✦ Pour toi ✦</p>
+
+    <!-- le grand titre. Le <span> met "mon amour !!" sur la ligne du dessous -->
+    <h1 class="titre">Joyeux anniversaire <span>mon amour !!</span></h1>
+
+    <!-- la photo en forme de coeur. Pour la changer : remplacez le fichier images/photo1.jpg -->
+    <figure class="photo coeur">
+      <img src="images/photo1.jpg" alt="Notre plus belle photo">
+    </figure>
+
+    <p class="sous-titre">Une carte rien que pour toi, ma princesse</p>
+
+    <!-- le bouton pour ouvrir la carte. data-suivant = "c'est le lien vers la page suivante" -->
+    <nav class="nav seul">
+      <a class="bouton bouton-grand" href="page2.html" data-suivant>Ouvrir la carte 💌</a>
+    </nav>
+  </main>
+
+  <!-- le petit programme (coeurs + pages qui tournent) -->
+  <script src="carte.js"></script>
+</body>
+</html>

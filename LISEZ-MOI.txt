@@ -1,0 +1,33 @@
+CARTE D'ANNIVERSAIRE - MODE D'EMPLOI
+====================================
+
+POUR VOIR LA CARTE
+  Double-cliquez sur "index.html". Elle s'ouvre dans votre navigateur.
+  (Il faut internet pour voir les belles polices d'ecriture.)
+
+CE QUI EST DANS LE DOSSIER
+  index.html   page 1 : la couverture
+  page2.html   page 2
+  page3.html   page 3
+  page4.html   page 4 : le mot de la fin
+  style.css    toutes les couleurs, tailles, bordures, animations
+  carte.js     les coeurs qui montent + les pages qui tournent
+  images/      les photos : photo1.jpg ... photo5.jpg
+
+POUR METTRE VOS PHOTOS
+  Remplacez les fichiers du dossier "images" par vos photos,
+  en gardant EXACTEMENT les memes noms (photo1.jpg, photo2.jpg ...).
+  Conseils : photos en .jpg, pas trop lourdes (moins de 500 Ko chacune).
+  Une photo se coupe un peu pour entrer dans son cadre : mettez les visages au centre.
+
+POUR CHANGER UN TEXTE
+  Ouvrez la page avec le Bloc-notes (ou VS Code), cherchez la phrase, modifiez-la.
+  Ne touchez pas aux signes < et > : seulement aux mots entre eux.
+
+POUR CHANGER LES COULEURS
+  Ouvrez style.css : tout en haut, la partie 1 "COULEURS ET POLICES".
+  Changez par exemple --rose-fonce: #d6336c;  par une autre couleur.
+
+POUR ENVOYER LA CARTE
+  - Par WhatsApp : envoyez le dossier compresse (.zip). Il faut le dezipper pour l'ouvrir.
+  - Pour un simple lien a envoyer : mettez le dossier en ligne (Vercel, Netlify...).

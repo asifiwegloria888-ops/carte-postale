@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <!-- "viewport" : indispensable pour que la carte s'affiche bien sur telephone -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Joyeux anniversaire mon amour - page 4</title>
+
+  <!-- Les belles polices viennent de Google Fonts (il faut internet). Sans internet, le navigateur en choisit d'autres. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+  <!-- le fichier de style, commun aux 4 pages -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-coeurs="30">
+  <!-- boite vide : carte.js y fait monter les coeurs -->
+  <div class="coeurs" aria-hidden="true"></div>
+
+  <!-- ==================== PAGE 4 : LE MOT DE LA FIN ==================== -->
+  <!-- data-coeurs="30" (dans <body>, plus haut) : il y a plus de coeurs qui montent sur cette page -->
+  <main class="carte">
+
+    <h2 class="titre-page">Mes vœux pour toi</h2>
+
+    <div class="lettre">
+      <p class="lettrine">Que Dieu te protège, te comble de <span class="fort">bonheur</span> et réalise les rêves les plus chers à ton cœur.</p>
+    </div>
+
+    <figure class="photo coeur">
+      <img src="images/photo5.jpg" alt="Nous deux">
+    </figure>
+
+    <div class="lettre">
+      <p><span class="fort">Joyeux anniversaire, ma princesse !</span> Que notre amour continue de grandir et nous rapproche de notre merveilleux avenir.</p>
+    </div>
+
+    <div class="separateur" aria-hidden="true">♥</div>
+
+    <p class="avec-amour">Avec tout mon amour,</p>
+    <p class="signature">Ton Answer ♥</p>
+
+    <nav class="nav">
+      <a class="bouton bouton-discret" href="page3.html" data-precedent>← Retour</a>
+      <span class="points" aria-label="Page 4 sur 4"><i></i><i></i><i></i><i class="actif"></i></span>
+      <a class="bouton" href="index.html">Revoir ↺</a>
+    </nav>
+  </main>
+
+  <!-- le petit programme (coeurs + pages qui tournent) -->
+  <script src="carte.js"></script>
+</body>
+</html>
