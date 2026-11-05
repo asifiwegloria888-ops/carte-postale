@@ -3,68 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Affiche – Service Traiteur</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Saveurs d'Ici – Service traiteur</title>
+
+  <!-- Polices (si pas d'internet, des polices de secours sont utilisées) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="affiche.css">
 </head>
 <body>
 
-  <main class="affiche">
+  <!--
+    PHOTOS : mettez-les dans un dossier "images" à côté de ce fichier.
+      images/cuisiniere.png  -> photo de la personne (idéalement sans fond, format PNG)
+      images/chawarma.jpg    images/pizza.jpg
+      images/poulet.jpg      images/viande.jpg      images/autre.jpg
+    Si une photo manque, son cadre reste simplement vide.
+  -->
 
-    <!-- EN-TÊTE -->
-    <header class="entete">
-      <p class="surtitre">Nouveau !</p>
-      <h1>Saveurs d'Ici</h1>
-      <p class="slogan">Service traiteur · Cuisine maison · Livraison</p>
+  <main class="poster">
+
+    <!-- Photo de la personne -->
+    <div class="portrait">
+      <span class="emoji">👩‍🍳</span>
+      <img src="2.jpeg" alt="La cuisinière" onerror="this.style.display='none'">
+    </div>
+
+    <!-- Titre -->
+    <header class="titre">
+      <h1>Izerjoy food</h1>
+      <p class="sous-titre">Cuisine maison</p>
+      <div class="points">
+        <i></i><i></i><i></i>
+      </div>
+      <p class="slogan"><strong>Izerjoy food</strong> vous offre un repas appétissant, fait avec amour  <strong> et de qualité</strong></p>
     </header>
 
-    <!-- PRÉSENTATION -->
-    <section class="intro">
-      <p>
-        Des plats faits maison, préparés avec des produits frais et beaucoup de
-        passion. Pour vos repas de famille, anniversaires, réunions ou simplement
-        pour vous régaler à la maison.
-      </p>
-    </section>
+    <!-- Panneau de photos (à gauche) -->
+    <aside class="panneau-photos">
+      <div class="cadre">
+        <img src="7.jpeg" alt="Chawarma" onerror="this.style.display='none'">
+      </div>
+      <div class="cadre">
+        <img src="6.jpeg" alt="Pizza" onerror="this.style.display='none'">
+      </div>
+    </aside>
 
-    <!-- PLATS PROPOSÉS -->
-    <section class="plats">
-      <h2>Nos plats</h2>
-      <ul>
-        <li><span class="icone">🍛</span> Plats à base de viande </li>
-        <li><span class="icone">🍛</span> Plats à base de poisson</li>
-        <li><span class="icone">🍛</span> Plats à base de poulet</li>
-        <li><span class="icone">🥗</span> Salades </li>
-        <li><span class="icone">🥟</span> petite, moyenne et grande pizza</li>
-        <li><span class="icone">🍰</span> chawarma </li>
+    <!-- Nos services -->
+    <section class="services">
+      <div class="services-titre">NOS SERVICES :</div>
+      <ul class="services-liste">
+        <li><b>Chawarma</b></li>
+        <li>Plats à base de <b>poulet</b></li>
+        <li>Plats à base de <b>viande</b></li>
+        <li><b>Livraison</b> à domicile</li>
       </ul>
     </section>
 
-    <!-- POINTS FORTS -->
-    <section class="atouts">
-      <div class="atout">
-        <span class="icone">🚚</span>
-        <strong>Livraison possible</strong>
-      </div>
-      <div class="atout">
-        <span class="icone">🎉</span>
-        <strong>Événements</strong>
-      </div>
-      <div class="atout">
-        <span class="icone">👨‍🍳</span>
-        <strong>Sur commande</strong>
-        <small>menu personnalisé</small>
-      </div>
+    <!-- Petite galerie -->
+    <section class="galerie">
+      <div class="mini"><img src="1.jpeg" alt="Plat de poulet" onerror="this.style.display='none'"></div>
+      <div class="mini"><img src="2.jpeg" alt="Plat de viande" onerror="this.style.display='none'"></div>
+      <div class="mini"><img src="3.jpeg" alt="Autre plat" onerror="this.style.display='none'"></div>
     </section>
 
-    <!-- CONTACT -->
-    <footer class="contact">
-      <p class="appel">Commandez dès aujourd'hui !</p>
-      <p class="telephone">📞 +243 961 557 632</p>
-      <p class="details">
-        WhatsApp : +243 961 557 632<br>
-        📍 kampala
-      </p>
-    </footer>
+    <!-- Bandeau vertical -->
+    <div class="bandeau">BIENVENUE À TOUS</div>
+
+    <!-- Contact -->
+    <div class="contact">
+      Contactez-nous dès maintenant au <strong>+243 975 538 753</strong>
+    </div>
+
+    <!-- Adresse -->
+    <p class="adresse">Adresse : GOMA/ULPGL</p>
 
   </main>
 
