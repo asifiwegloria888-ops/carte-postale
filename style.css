@@ -181,6 +181,16 @@ body {
   text-align: right;
   line-height: 1.1;
 }
+.agence {
+  font-family: 'cormorant garamond', serif;
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #b88a9a;
+  opacity: 0.8;
+  margin-top: 18px;
+  text-align: center;
+}
 .avec-amour { margin: 8px 0 0; text-align: right; font-style: italic; }
 
 
