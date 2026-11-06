@@ -292,3 +292,63 @@ body {
   .coeurs { display: none; }
   .coeur, .bouton-grand { animation: none; }
 }
+/* ---------- 9. IMPRESSION (PDF) ---------- */
+@media print {
+  @page { size: A5 portrait; margin: 0; }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  html, body {
+    height: 100% !important;
+    min-height: 0 !important;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #fde4ec !important;
+    background: #fde4ec !important; 
+}
+
+  body {
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+  }
+
+  .carte *,
+  .carte *::before,
+  .carte *::after {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+  }
+  .carte {
+    zoom: 0.75;
+    margin: 0 auto;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .carte * {
+    animation: none !important;
+    transition: none !important;
+    will-change: auto !important;
+    backdrop-filter: none !important;
+    mix-blend-mode: normal !important;
+  }
+
+  .nav:not(.seul),
+  .points,
+  .coeurs {
+    display: none !important;
+  }
+
+  .bouton-grand {
+    
+    animation: none !important;
+    
+  }
+}
