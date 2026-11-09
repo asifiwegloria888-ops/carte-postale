@@ -311,12 +311,33 @@ body {
   .contact { margin: 0 14px; border-radius: 26px; }
 }
 
-/* ---------- Impression / PDF ---------- */
+/* ---------- Impression / PDF : la page a EXACTEMENT la taille de l'affiche ----------
+   Plus de blanc sous l'affiche : le script de affiche.html mesure l'affiche et règle la taille de la page.
+   Dans la fenêtre d'impression : Destination "Enregistrer au format PDF", Marges "Aucune",
+   et cochez "Graphiques d'arrière-plan". */
+@page {
+  size: 700px 560px;   /* valeur de secours : le script de affiche.html la remplace par la vraie hauteur */
+  margin: 0;
+}
+
 @media print {
   * {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
-  body { background: none; padding: 0; }
-  .poster { box-shadow: none; border-radius: 0; max-width: 100%; }
+  html, body {
+    width: 700px;
+    margin: 0;
+    padding: 0;
+    background: none;
+    display: block;
+  }
+  .poster {
+    width: 700px;
+    max-width: none;
+    border-radius: 0;
+    box-shadow: none;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
 }
