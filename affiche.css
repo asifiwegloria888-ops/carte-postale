@@ -331,6 +331,28 @@ body {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
+  /* Pas de transparence dans le PDF : sur certains téléphones (visionneuses PDF d'Android, aperçu WhatsApp...)
+     les ombres et les dégradés transparents s'affichent en grands carrés noirs. */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  .poster {
+    /* mêmes taches dorées et chocolat que l'écran, mais avec des couleurs pleines (sans transparence) */
+    background:
+      radial-gradient(ellipse 100% 100% at 100% 100%,   #ecd293, #fbf3e2 70%) no-repeat bottom right / 45% 40%,
+      radial-gradient(ellipse 100% 100% at 0% 100%,     #d4bfaa, #fbf3e2 70%) no-repeat bottom left  / 50% 40%,
+      radial-gradient(ellipse 100% 100% at 100% 17.14%, #d4bfaa, #fbf3e2 70%) no-repeat top right    / 40% 35%,
+      radial-gradient(ellipse 100% 100% at 13.33% 0%,   #eace8a, #fbf3e2 70%) no-repeat top left     / 45% 40%,
+      #fbf3e2;
+  }
+  .mini {
+    background: linear-gradient(135deg, #ecd293, #c1a48e);
+  }
+  .portrait .emoji {
+    display: none;          /* l'emoji est une image transparente : il cache sous la photo et peut devenir un carré noir */
+  }
+
   html, body {
     width: 700px;
     height: var(--poster-h);
