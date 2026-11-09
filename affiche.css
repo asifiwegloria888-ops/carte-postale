@@ -311,12 +311,18 @@ body {
   .contact { margin: 0 14px; border-radius: 26px; }
 }
 
-/* ---------- Impression / PDF : la page a EXACTEMENT la taille de l'affiche ----------
-   Plus de blanc sous l'affiche : le script de affiche.html mesure l'affiche et règle la taille de la page.
+/* ---------- Impression / PDF : UNE seule page, de la taille exacte de l'affiche ----------
+   Pas de blanc sous l'affiche et jamais de 2e page : la page, le corps et l'affiche ont la même hauteur,
+   et tout ce qui dépasse est coupé. La hauteur est mesurée automatiquement par le script de affiche.html.
+   Si le script est absent, la valeur de secours de 680px est utilisée (changez-la ici ET dans @page).
    Dans la fenêtre d'impression : Destination "Enregistrer au format PDF", Marges "Aucune",
    et cochez "Graphiques d'arrière-plan". */
+:root {
+  --poster-h: 680px;
+}
+
 @page {
-  size: 700px 560px;   /* valeur de secours : le script de affiche.html la remplace par la vraie hauteur */
+  size: 700px 680px;   /* valeur de secours : le script de affiche.html la remplace par la vraie hauteur */
   margin: 0;
 }
 
@@ -327,17 +333,19 @@ body {
   }
   html, body {
     width: 700px;
+    height: var(--poster-h);
     margin: 0;
     padding: 0;
+    overflow: hidden;       /* rien ne peut créer une 2e page */
     background: none;
     display: block;
   }
   .poster {
     width: 700px;
+    height: var(--poster-h);
     max-width: none;
+    overflow: hidden;
     border-radius: 0;
     box-shadow: none;
-    break-inside: avoid;
-    page-break-inside: avoid;
   }
 }
