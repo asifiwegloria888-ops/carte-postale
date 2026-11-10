@@ -10,7 +10,7 @@
   --or: #d4a02a;
   --blanc: #ffffff;
 
-  --taille: 184px;   /* diamètre de l'emblème rond */
+  --taille: 200px;   /* diamètre de l'emblème rond */
 }
 
 * {
@@ -24,58 +24,13 @@ body {
 }
 
 /* ---------- Zones d'affichage (juste pour la démonstration) ---------- */
-.zone {
-  min-height: 50vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px 20px;
-}
-/* ================= FOND EMBELLI ================= */
-.zone {
-  position: relative;
-  overflow: hidden;
-}
-
-/* Le logo passe au-dessus du décor */
-.logo {
-  position: relative;
-  z-index: 1;
-}
-
-/* ----- Fond clair : crème avec lueurs dorées + petits points ----- */
-.zone-claire {
-  background:
-    radial-gradient(circle, rgba(212, 160, 42, 0.22) 1px, transparent 1.5px) 0 0 / 24px 24px,
-    radial-gradient(circle at 12% 18%, rgba(212, 160, 42, 0.22), transparent 42%),
-    radial-gradient(circle at 90% 88%, rgba(212, 160, 42, 0.18), transparent 45%),
-    linear-gradient(135deg, #fffdf8 0%, #f8f0de 100%);
-}
-
-/* ----- Fond sombre : bleu nuit profond avec lueurs dorées ----- */
-.zone-sombre {
-  background:
-    radial-gradient(circle, rgba(212, 160, 42, 0.20) 1px, transparent 1.5px) 0 0 / 24px 24px,
-    radial-gradient(circle at 15% 15%, rgba(212, 160, 42, 0.25), transparent 40%),
-    radial-gradient(circle at 88% 90%, rgba(212, 160, 42, 0.16), transparent 42%),
-    linear-gradient(135deg, #1a1f45 0%, #0e1022 55%, #070914 100%);
-}
-
-/* ----- Double cadre doré (fin) ----- */
-.zone::before,
-.zone::after {
-  content: "";
+.zone-claire { background: #ffffff; }
+.zone-sombre { background: var(--marine-fonce); }
+.fleur {
   position: absolute;
-  pointer-events: none;
-  border-radius: 14px;
-}
-.zone::before {
-  inset: 16px;
-  border: 1.5px solid rgba(212, 160, 42, 0.75);
-}
-.zone::after {
-  inset: 24px;
-  border: 1px solid rgba(212, 160, 42, 0.35);
+  inset: 10%;
+  width: 80%;
+  height: 80%;
 }
 
 /* ---------- Le logo ---------- */
@@ -115,10 +70,6 @@ body {
   animation: brille 3s ease-in-out infinite;
 }
 
-@keyframes brille {
-  0%, 100% { transform: translateX(-50%) scale(1); }
-  50%      { transform: translateX(-50%) scale(1.08); }
-}
 
 /* Petits confettis */
 .confetti {
@@ -234,8 +185,30 @@ body {
   .sous-nom { font-size: 1.5rem; }
   .mention  { font-size: 0.7rem; }
 }
+@media (max-width: 1100px) {
+  :root { --taille: 160px; }
+
+  .nom      { font-size: 3rem; }
+  .sous-nom { font-size: 1.6rem; }
+}
+.telephone {
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
+  color: var(--marine);
+  margin-top: 8px;
+}
+
+/* Sur fond sombre, le numéro devient doré */
+.sombre .telephone {
+  color: var(--or);
+}
+.zone {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
 
 /* ---------- Animation désactivée si demandé par l'utilisateur ---------- */
-@media (prefers-reduced-motion: reduce) {
-  .etoile { animation: none; }
-}
