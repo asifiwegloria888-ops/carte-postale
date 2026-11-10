@@ -191,6 +191,60 @@ body {
   .nom      { font-size: 3rem; }
   .sous-nom { font-size: 1.6rem; }
 }
+.badge-zone {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  background: #ffffff;
+}
+
+.badge {
+  width: 360px;
+  height: 360px;
+}
+
+.badge-haut {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  fill: #f3d27a;
+}
+.badge-zone {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  background: #ffffff;
+}
+
+.badge {
+  width: 360px;
+  height: 360px;
+}
+
+.badge-haut {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: 22px;
+  letter-spacing: 3px;
+  fill: #f3d27a;
+}
+
+.badge-bas {
+  font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 2.5px;
+  fill: #ffffff;
+}
+
+.badge-bas {
+  font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 2.5px;
+  fill: #ffffff;
+}
 .telephone {
   font-weight: 600;
   font-size: 1.05rem;

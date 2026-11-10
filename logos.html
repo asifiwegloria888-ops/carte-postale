@@ -170,5 +170,66 @@
   </div>
 </div>
 
+<!-- ============ BADGE ROND AVEC TEXTE ============ -->
+<div class="badge-zone">
+  <svg class="badge" viewBox="0 0 320 320" role="img" aria-label="Beauty Flowers Agency">
+
+    <!-- Chemins en arc, invisibles : ils servent de guide au texte -->
+    <defs>
+      <path id="arc-haut" d="M 44,160 A 116,116 0 0 1 276,160"/>
+      <path id="arc-bas"  d="M 26,160 A 134,134 0 0 0 294,160"/>
+    </defs>
+
+    <!-- Fond et anneaux dorés -->
+    <circle cx="160" cy="160" r="156" fill="#1b1f3b"/>
+    <circle cx="160" cy="160" r="148" fill="none" stroke="#d4a02a" stroke-width="3"/>
+    <circle cx="160" cy="160" r="96"  fill="none" stroke="#d4a02a" stroke-width="1" opacity="0.5"/>
+
+    <!-- Texte du haut -->
+    <text class="badge-haut">
+      <textPath href="#arc-bas" startOffset="50%" text-anchor="middle">DÉCORATION · GOMA</textPath>
+    </text>
+
+    <!-- Texte du bas -->
+    <text class="badge-bas">
+      <textPath href="#arc-bas" startOffset="50%" text-anchor="middle">DÉCORATION · GOMA</textPath>
+    </text>
+
+    <!-- Petits points de séparation -->
+    <circle cx="26"  cy="160" r="3.5" fill="#d4a02a"/>
+    <circle cx="294" cy="160" r="3.5" fill="#d4a02a"/>
+
+    <!-- Fleur au centre -->
+    <use href="#fleur-dessin" transform="translate(160 160) scale(1.2)"/>
+  </svg>
+</div>
+<!-- ============ BADGE ROND AVEC TEXTE ============ -->
+<div class="badge-zone">
+  <svg class="badge" viewBox="0 0 320 320" role="img" aria-label="Beauty Flowers Agency">
+
+    <defs>
+      <path id="arc-haut" d="M 44,160 A 116,116 0 0 1 276,160"/>
+      <path id="arc-bas"  d="M 26,160 A 134,134 0 0 0 294,160"/>
+    </defs>
+
+    <circle cx="160" cy="160" r="156" fill="#1b1f3b"/>
+    <circle cx="160" cy="160" r="148" fill="none" stroke="#d4a02a" stroke-width="3"/>
+    <circle cx="160" cy="160" r="96"  fill="none" stroke="#d4a02a" stroke-width="1" opacity="0.5"/>
+
+    <text class="badge-haut">
+      <textPath href="#arc-haut" startOffset="50%" text-anchor="middle">BEAUTY FLOWERS</textPath>
+    </text>
+
+    <text class="badge-bas">
+      <textPath href="#arc-bas" startOffset="50%" text-anchor="middle">+243 990 426 231</textPath>
+    </text>
+
+    <circle cx="26"  cy="160" r="3.5" fill="#d4a02a"/>
+    <circle cx="294" cy="160" r="3.5" fill="#d4a02a"/>
+
+    <use href="#fleur-dessin" transform="translate(160 160) scale(1.2)"/>
+  </svg>
+</div>
+
 </body>
 </html>
