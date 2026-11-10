@@ -1,0 +1,162 @@
+/* =========================================================
+   LOGO – AGENCE ÉVÉNEMENTIELLE (HTML + CSS)
+   Pour changer les couleurs, modifiez uniquement :root
+   Pour agrandir/réduire tout le logo : changez --taille
+   ========================================================= */
+
+:root {
+  --marine: #1b1f3b;
+  --marine-fonce: #0e1022;
+  --or: #d4a02a;
+  --blanc: #ffffff;
+
+  --taille: 184px;   /* diamètre de l'emblème rond */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+}
+
+/* ---------- Zones d'affichage (juste pour la démonstration) ---------- */
+.zone {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+.zone-claire { background: #ffffff; }
+.zone-sombre { background: var(--marine-fonce); }
+
+/* ---------- Le logo ---------- */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+/* ---------- Emblème rond ---------- */
+.embleme {
+  position: relative;
+  flex-shrink: 0;
+  width: var(--taille);
+  height: var(--taille);
+  border-radius: 50%;
+  background: var(--marine);
+  /* anneau doré : une bande marine à l'extérieur, puis l'anneau or */
+  box-shadow:
+    inset 0 0 0 8px var(--marine),
+    inset 0 0 0 12px var(--or);
+}
+
+/* Étoile (symbole de fête) */
+.etoile {
+  position: absolute;
+  top: 19%;
+  left: 50%;
+  width: 49%;
+  height: 49%;
+  transform: translateX(-50%);
+  background: var(--or);
+  clip-path: polygon(
+    50% 0%, 61% 39%, 100% 50%, 61% 61%,
+    50% 100%, 39% 61%, 0% 50%, 39% 39%
+  );
+  animation: brille 3s ease-in-out infinite;
+}
+
+@keyframes brille {
+  0%, 100% { transform: translateX(-50%) scale(1); }
+  50%      { transform: translateX(-50%) scale(1.08); }
+}
+
+/* Petits confettis */
+.confetti {
+  position: absolute;
+  background: var(--or);
+  border-radius: 50%;
+}
+.c1 { width: 8px; height: 8px; top: 24%; left: 76%; }
+.c2 { width: 6px; height: 6px; top: 28%; left: 22%; }
+.c3 { width: 6px; height: 6px; top: 58%; left: 83%; }
+.c4 { width: 8px; height: 8px; top: 56%; left: 15%; }
+
+/* Vagues du lac Kivu (rangées d'arcs dorés) */
+.vague {
+  position: absolute;
+  left: 22%;
+  right: 22%;
+  height: 14px;
+  background:
+    radial-gradient(circle at 10px 0,
+      transparent 9px, var(--or) 10px, var(--or) 13px, transparent 14px)
+    repeat-x;
+  background-size: 20px 14px;
+}
+.v1 { bottom: 26%; }
+.v2 { bottom: 16%; opacity: 0.6; background-position: 10px 0; }
+
+/* ---------- Texte ---------- */
+.nom {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: 4.1rem;
+  letter-spacing: 0.09em;
+  line-height: 1;
+  color: var(--marine);
+}
+
+.sous-nom {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  font-size: 2.1rem;
+  letter-spacing: 0.4em;
+  line-height: 1.2;
+  color: var(--or);
+  margin-top: 6px;
+}
+
+.trait {
+  border: none;
+  height: 2px;
+  background: var(--or);
+  margin: 12px 0 10px;
+}
+
+.mention {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--marine);
+  opacity: 0.85;
+}
+
+/* ---------- Version pour fond sombre ---------- */
+.sombre .nom     { color: var(--blanc); }
+.sombre .mention { color: var(--blanc); }
+
+/* ---------- Petits écrans ---------- */
+@media (max-width: 640px) {
+  :root { --taille: 140px; }
+
+  .logo {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+  .nom      { font-size: 3rem; }
+  .sous-nom { font-size: 1.5rem; }
+  .mention  { font-size: 0.7rem; }
+}
+
+/* ---------- Animation désactivée si demandé par l'utilisateur ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .etoile { animation: none; }
+}
