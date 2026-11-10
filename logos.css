@@ -226,5 +226,28 @@ body {
   justify-content: center;
   padding: 40px 20px;
 }
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body { margin: 0; }
+
+  .zone {
+    height: 209mm;
+    min-height: 0;
+    overflow: hidden;
+    break-after: page;
+    page-break-after: always;
+  }
+
+  .logo { padding: 0; }
+}
 
 /* ---------- Animation désactivée si demandé par l'utilisateur ---------- */
